@@ -1,0 +1,28 @@
+{
+    "name": "codingmonkeys/dashboard-connector",
+    "description": "Package to connect your application with the Coding Monkeys dashboard",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Michael Blijleven",
+            "email": "info@voicecode.nl"
+        }
+    ],
+    "require": {
+        "php": ">=7.3",
+        "laravel/framework": "^7|^8"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CodingMonkeys\\DashboardConnector\\DashboardConnectorServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "CodingMonkeys\\DashboardConnector\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
