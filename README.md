@@ -26,5 +26,5 @@ CM_SITE_ENV_TOKEN=""
 Send application details to the Coding Monkeys dashboard:  
 
 ```bash
-php artisan command:cm-update-version
+php artisan command:cm-update
 ```
