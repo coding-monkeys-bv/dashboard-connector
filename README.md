@@ -21,10 +21,22 @@ php artisan vendor:publish --provider="CodingMonkeys\DashboardConnector\Dashboar
 
 Add environment variable:  
 
-CM_SITE_ENV_TOKEN=""  
+CM_SITE_TOKEN=""  
 
 Send application details to the Coding Monkeys dashboard:  
 
 ```bash
 php artisan command:cm-update
+```
+
+## Automatic updates
+
+Add the artisan command to the post-autoload-dump hook in composer.json for automatic updates.
+
+```bash
+"post-autoload-dump": [
+    "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+    "@php artisan package:discover --ansi",
+    "@php artisan command:cm-update"
+],
 ```
