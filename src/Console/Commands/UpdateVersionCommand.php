@@ -12,6 +12,12 @@ class UpdateVersionCommand extends Command
 
     public function handle()
     {
+        if (is_null(config('dashboard-connector.site_token'))) {
+            $this->error('No site token available!');
+
+            return;
+        }
+
         Http::put('https://dashboard.codingmonkeys.nl/api/v1/update', [
             'token' => config('dashboard-connector.site_token'),
             'version' => app()->version(),
