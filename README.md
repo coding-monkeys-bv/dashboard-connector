@@ -21,7 +21,9 @@ php artisan vendor:publish --provider="CodingMonkeys\DashboardConnector\Dashboar
 
 Add environment variable:  
 
+```
 CM_SITE_TOKEN=""  
+```
 
 Send application details to the Coding Monkeys dashboard:  
 
