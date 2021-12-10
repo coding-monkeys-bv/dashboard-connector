@@ -20,7 +20,8 @@ class UpdateVersionCommand extends Command
 
         Http::put('https://dashboard.codingmonkeys.nl/api/v1/update', [
             'token' => config('dashboard-connector.site_token'),
-            'version' => app()->version(),
+            'laravel_version' => app()->version(),
+            'php_version' => phpversion(),
         ]);
     }
 }
