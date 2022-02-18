@@ -2,8 +2,8 @@
 
 namespace CodingMonkeys\DashboardConnector\Console\Commands;
 
+use CodingMonkeys\DashboardConnector\Helpers\RequestHelper;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Http;
 
 class UpdateVersionCommand extends Command
 {
@@ -12,16 +12,7 @@ class UpdateVersionCommand extends Command
 
     public function handle()
     {
-        if (is_null(config('dashboard-connector.site_token'))) {
-            $this->error('No site token available!');
-
-            return;
-        }
-
-        Http::put('https://dashboard.codingmonkeys.nl/api/v1/update', [
-            'token' => config('dashboard-connector.site_token'),
-            'laravel_version' => app()->version(),
-            'php_version' => phpversion(),
-        ]);
+        $requestHelper = new RequestHelper();
+        $requestHelper->pushApplicationData(true);
     }
 }
