@@ -1,6 +1,6 @@
 {
     "name": "codingmonkeys/dashboard-connector",
-    "description": "Package to connect your application with the Coding Monkeys dashboard",
+    "description": "Package to connect an application with the Coding Monkeys dashboard",
     "type": "library",
     "authors": [
         {

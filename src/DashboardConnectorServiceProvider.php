@@ -17,6 +17,8 @@ class DashboardConnectorServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/dashboard-connector.php' => base_path('config/dashboard-connector.php'),
         ], 'dashboard-connector:config');
+
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     }
 
     /**
