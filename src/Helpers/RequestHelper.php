@@ -27,11 +27,7 @@ class RequestHelper
             $data['deployed_at'] = now()->format('Y-m-d H:i:s');
         }
 
-        $domain = app()->isLocal()
-            ? 'dashboard.test'
-            : 'dashboard.codingmonkeys.nl';
-
         // Send data to dashboard.
-        Http::put('https://'.$domain.'/api/v1/update', $data);
+        Http::put('https://dashboard.codingmonkeys.nl/api/v1/update', $data);
     }
 }
