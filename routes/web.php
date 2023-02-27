@@ -1,9 +1,9 @@
 <?php
 
-use CodingMonkeys\DashboardConnector\Helpers\RequestHelper;
+use CodingMonkeys\DashboardConnector\Console\Commands\UpdateVersionCommand;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('coding-monkeys/connector/refresh', function () {
-    $requestHelper = new RequestHelper();
-    $requestHelper->pushApplicationData();
+    Artisan::call(UpdateVersionCommand::class);
 });

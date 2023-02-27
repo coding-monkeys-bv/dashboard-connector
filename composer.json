@@ -5,12 +5,15 @@
     "authors": [
         {
             "name": "Michael Blijleven",
-            "email": "info@voicecode.nl"
+            "email": "michael@codingmonkeys.nl"
         }
     ],
     "require": {
-        "php": ">=8.0",
-        "laravel/framework": "^9|^10"
+        "php": "^8.1",
+        "illuminate/config": "^10.0",
+        "illuminate/support": "^10.0",
+        "illuminate/http": "*",
+        "guzzlehttp/guzzle": "^7.5"
     },
     "extra": {
         "laravel": {
@@ -21,8 +24,22 @@
     },
     "autoload": {
         "psr-4": {
-            "CodingMonkeys\\DashboardConnector\\": "src/"
+            "CodingMonkeys\\DashboardConnector\\": "src/",
+            "CodingMonkeys\\DashboardConnector\\Tests\\": "tests"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^9.6",
+        "nunomaduro/collision": "^6.1",
+        "pestphp/pest": "^1.22",
+        "pestphp/pest-plugin-laravel": "^1.4",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest-plugin-parallel": "^1.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
