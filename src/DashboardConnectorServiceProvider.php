@@ -10,6 +10,7 @@ class DashboardConnectorServiceProvider extends ServiceProvider
     /**
      * Bootstrap services.
      *cda.
+     *
      * @return void
      */
     public function boot()
@@ -32,10 +33,10 @@ class DashboardConnectorServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/dashboard-connector.php', 'dashboard-connector');
 
         // Activate commands.
-        if ($this->app->runningInConsole()) {
+        //if ($this->app->runningInConsole()) {
             $this->commands([
                 UpdateVersionCommand::class,
             ]);
-        }
+        //}
     }
 }
