@@ -2,8 +2,8 @@
 
 namespace CodingMonkeys\DashboardConnector\Tests;
 
-use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use CodingMonkeys\DashboardConnector\DashboardConnectorServiceProvider;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 abstract class TestCase extends OrchestraTestCase
 {

@@ -2,7 +2,6 @@
 
 namespace CodingMonkeys\DashboardConnector\Helpers;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
 class RequestHelper
@@ -22,7 +21,7 @@ class RequestHelper
         if ($deployment) {
             $data['deployed_at'] = now()->format('Y-m-d H:i:s');
         }
-        
+
         // Send data to dashboard.
         Http::put('https://dashboard.codingmonkeys.nl/api/v1/update', $data);
     }

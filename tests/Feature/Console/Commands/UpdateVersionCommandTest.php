@@ -1,16 +1,13 @@
 <?php
 
 use CodingMonkeys\DashboardConnector\Console\Commands\UpdateVersionCommand;
-use CodingMonkeys\DashboardConnector\Helpers\RequestHelper;
 use Illuminate\Http\Client\Request;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Http;
-
 use function Pest\Laravel\artisan;
 
-beforeEach(function() {
+beforeEach(function () {
     Http::fake([
-        'https://dashboard.codingmonkeys.nl/api/v1/update' => Http::response(200)
+        'https://dashboard.codingmonkeys.nl/api/v1/update' => Http::response(200),
     ]);
 });
 
@@ -53,7 +50,7 @@ it('fails when no site token is set', function () {
 
     config()->set('dashboard-connector.site_token', null);
 
-    artisan(UpdateVersionCommand::class)
+    $this->artisan(UpdateVersionCommand::class)
         ->expectsOutput('No site token specified')
         ->assertExitCode(1);
 
