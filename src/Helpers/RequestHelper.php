@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class RequestHelper
 {
-    public function pushApplicationData($deployment = false)
+    public function pushApplicationData($deployment = false): bool
     {
         // Collect app data.
         $data = [
@@ -23,6 +23,8 @@ class RequestHelper
         }
 
         // Send data to dashboard.
-        Http::put('https://dashboard.codingmonkeys.nl/api/v1/update', $data);
+        $response = Http::put('https://dashboard.codingmonkeys.nl/api/v1/update', $data);
+
+        return $response->successful();
     }
 }
