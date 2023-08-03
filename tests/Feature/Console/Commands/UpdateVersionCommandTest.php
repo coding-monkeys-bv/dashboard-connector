@@ -50,8 +50,7 @@ it('does not update when no site token is set', function () {
     config()->set('dashboard-connector.site_token', null);
 
     artisan(UpdateVersionCommand::class)
-        ->expectsOutput('No site token specified')
-        ->assertFailed();
+        ->expectsOutput('No site token specified');
 
     Http::assertNothingSent();
 });

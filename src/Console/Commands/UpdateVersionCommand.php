@@ -11,17 +11,15 @@ class UpdateVersionCommand extends Command
 
     protected $description = 'Update application data at Coding Monkeys dashboard.';
 
-    public function handle(): bool
+    public function handle()
     {
         // Return when no site token is available.
         if (is_null(config('dashboard-connector.site_token'))) {
             $this->error('No site token specified');
-
-            return Command::FAILURE;
+        } else {
+            $requestHelper = new RequestHelper();
+            $requestHelper->pushApplicationData($this->argument('deployment') ?? false);
         }
-
-        $requestHelper = new RequestHelper();
-        $requestHelper->pushApplicationData($this->argument('deployment') ?? false);
 
         return Command::SUCCESS;
     }
